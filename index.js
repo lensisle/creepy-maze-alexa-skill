@@ -3,6 +3,7 @@
 // session persistence, api calls, and more.
 const Alexa = require("ask-sdk-core");
 const launchDocument = require("documents/launchDocument.json");
+const util = require("./util");
 
 const LaunchRequestHandler = {
   canHandle(handlerInput) {
@@ -27,8 +28,7 @@ const LaunchRequestHandler = {
             end: "creepy maze!"
           },
           assets: {
-            wakingUp:
-              "https://github.com/camiloei/skills-assets/blob/master/1.png?raw=true"
+            wakingUp: util.getS3PreSignedUrl("Media/1.png")
           }
         }
       });
