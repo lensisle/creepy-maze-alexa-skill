@@ -1,0 +1,100 @@
+{
+  "type": "APL",
+  "version": "1.1",
+  "settings": {},
+  "theme": "dark",
+  "import": [
+    {
+      "name": "alexa-layouts",
+      "version": "1.1.0"
+    }
+  ],
+  "resources": [],
+  "styles": {
+    "bigText": {
+      "values": [
+        {
+          "fontSize": "60dp",
+          "textAlign": "center"
+        }
+      ]
+    },
+    "mediumText": {
+      "values": [
+        {
+          "fontSize": "42dp",
+          "textAlign": "center"
+        }
+      ]
+    }
+  },
+  "onMount": [],
+  "graphics": {},
+  "commands": {},
+  "layouts": {},
+  "mainTemplate": {
+    "parameters": ["payload"],
+    "items": [
+      {
+        "type": "Container",
+        "when": "${@viewportProfile != @hubRoundSmall}",
+        "width": "100%",
+        "height": "100%",
+        "justifyContent": "center",
+        "items": [
+          {
+            "type": "Text",
+            "text": "${payload.text.welcome}",
+            "paddingTop": "12dp",
+            "paddingBottom": "12dp",
+            "style": "bigText"
+          },
+          {
+            "type": "Text",
+            "text": "${payload.text.middle}",
+            "style": "mediumText"
+          },
+          {
+            "type": "Text",
+            "text": "${payload.text.end}",
+            "style": "mediumText"
+          },
+          {
+            "imageHeight": "50vh",
+            "imageAspectRatio": "poster_landscape",
+            "imageScale": "best-fit",
+            "imageSource": "${payload.assets.wakingUp}",
+            "type": "AlexaImage",
+            "alignSelf": "center"
+          }
+        ]
+      },
+      {
+        "type": "Container",
+        "when": "${@viewportProfile == @hubRoundSmall}",
+        "width": "100%",
+        "height": "100%",
+        "justifyContent": "center",
+        "items": [
+          {
+            "type": "Text",
+            "text": "${payload.text.welcome}",
+            "paddingTop": "12dp",
+            "paddingBottom": "12dp",
+            "style": "bigText"
+          },
+          {
+            "type": "Text",
+            "text": "${payload.text.middle}",
+            "style": "mediumText"
+          },
+          {
+            "type": "Text",
+            "text": "${payload.text.end}",
+            "style": "mediumText"
+          }
+        ]
+      }
+    ]
+  }
+}
