@@ -1,0 +1,108 @@
+{
+  "type": "APL",
+  "version": "1.1",
+  "settings": {},
+  "theme": "dark",
+  "import": [
+    {
+      "name": "alexa-layouts",
+      "version": "1.1.0"
+    }
+  ],
+  "resources": [],
+  "styles": {
+    "bigText": {
+      "values": [
+        {
+          "fontSize": "48dp",
+          "textAlign": "center"
+        }
+      ]
+    },
+    "mediumText": {
+      "values": [
+        {
+          "fontSize": "20dp",
+          "textAlign": "center"
+        }
+      ]
+    },
+    "smallText": {
+      "values": [
+        {
+          "fontSize": "16dp"
+        }
+      ]
+    }
+  },
+  "onMount": [],
+  "graphics": {},
+  "commands": {},
+  "layouts": {},
+  "mainTemplate": {
+    "parameters": ["payload"],
+    "items": [
+      {
+        "type": "Container",
+        "when": "${@viewportProfile != @hubRoundSmall}",
+        "width": "100%",
+        "height": "100%",
+        "justifyContent": "center",
+        "items": [
+          {
+            "type": "Text",
+            "style": "bigText",
+            "shrink": 1,
+            "maxLines": 4,
+            "text": "${payload.text.main}"
+          },
+          {
+            "imageHeight": "50vh",
+            "imageAspectRatio": "poster_landscape",
+            "imageScale": "best-fit",
+            "imageSource": "${payload.assets.mainImage}",
+            "type": "AlexaImage",
+            "alignSelf": "center"
+          },
+          {
+            "when": "${payload.text.life != '-1'}",
+            "type": "Text",
+            "style": "smallText",
+            "paddingTop": "12dp",
+            "paddingRight": "20dp",
+            "paddingBottom": "12dp",
+            "textAlign": "right",
+            "color": "#E80006",
+            "text": "Life: ${payload.text.life}",
+            "fontWeight": "bold"
+          }
+        ]
+      },
+      {
+        "type": "Container",
+        "when": "${@viewportProfile == @hubRoundSmall}",
+        "width": "100%",
+        "height": "100%",
+        "justifyContent": "center",
+        "items": [
+          {
+            "type": "Text",
+            "text": "${payload.text.main}",
+            "paddingTop": "12dp",
+            "paddingBottom": "12dp",
+            "style": "mediumText"
+          },
+          {
+            "type": "Text",
+            "text": "Life: ${payload.text.life}",
+            "paddingTop": "12dp",
+            "paddingBottom": "12dp",
+            "textAlign": "right",
+            "paddingRight": "20dp",
+            "style": "smallText"
+          }
+        ]
+      }
+    ]
+  }
+}

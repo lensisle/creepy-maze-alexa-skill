@@ -63,7 +63,7 @@
             "imageHeight": "50vh",
             "imageAspectRatio": "poster_landscape",
             "imageScale": "best-fit",
-            "imageSource": "${payload.assets.wakingUp}",
+            "imageSource": "${payload.assets.forest}",
             "type": "AlexaImage",
             "alignSelf": "center"
           }
